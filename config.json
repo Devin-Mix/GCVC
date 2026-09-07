@@ -1,0 +1,27 @@
+{
+	"my_BackSNES_a.png": {
+                "path": "banner/my_BackSNES_a.png",
+                "inHash": "31fd4a32a41cacc8d6c64b033509aef0d0ba49dfb134345e37544f7407e33429",
+                "patchHash": "5648d4e70b0c22ee8ad93b20a4aa31fe2d024644868600470a426a11fef6c0e1"
+        },
+	"VCPic.png": {
+		"path": "banner/VCPic.png",
+		"inHash": "ae5060b3a1670687de2f5ab02e622768994a7cb6a65c277f7ab6256f8e3e68e6",
+		"patchHash": "d5bb0f859e14e4961c60e630b92d5ac8e72decfaa079c9df95862145afe3fcee"
+	},
+        "LogoSNES.png": {
+                "path": "icon/LogoSNES.png",
+                "inHash": "a05cbfbc48a8ab911552a97f10eb1646dbbc73c96089329ace4786cb5d681953",
+                "patchHash": "25e251310ce2e804b52cbaa83e7333f7b6943f776ac377805ed677eeec5f3e4b"
+        },
+	"IconVCPic.png": {
+		"path": "icon/IconVCPic.png",
+		"inHash": "89e168ed26e6837746c9e4577c938bcfa05f912372174e9cc638583c015f0ee8",
+		"patchHash": "105361e566d66b2ec376f9022408cc59202ab33bd51ce37f44b0488c187f7206"
+	},
+        "banner.brlyt": {
+                "path": "banner.brlyt",
+                "inHash": "95a5075977e85776d5d028ed9e7b5c271847d2d74ff840172660d16487fe62f2",
+                "patchHash": "4218607bceaa951966db485fab6371439ec9a4ce6185a23f9e8202653f94028e"
+        }
+}
