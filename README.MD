@@ -61,7 +61,11 @@ In developer testing, CustomizeMii appeared to consistently produce PNGs with th
 
 Testing of this behavior from Windows and MacOS users would be appreciated.
 
-If you follow the above steps completely with a known-good WAD and find that your assets are being rejected for having incorrect hashes, please refer to "Troubleshooting & Reporting Problems" and file an issue on GitHub. Be sure to include your operating system name and version in your report.
+If you follow the above steps completely with a known-good WAD and find that your assets are being rejected for having incorrect hashes, please try launching GC⚡VC as follows:
+
+> `python3 gcvc.py --no-images`
+
+Doing so will skip the process of loading, validating, patching, and outputting any PNG assets. This will have the unfortunate side effect of preventing the script from producing its intended assets, but it will allow you to produce the layout file until a proper solution for this issue is implemented.
 
 ### Sorting your assets
 
