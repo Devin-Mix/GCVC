@@ -5,8 +5,13 @@ from sys import argv
 
 def main():
 	debug = False
+	createImages = True
 	if "--debug" in argv:
 		debug = True
+		debugPrint(debug, "Debugging enabled.")
+	if "--no-images" in argv:
+		debugPrint(debug, "--no-images specified, no images will be created.")
+		createImages = False
 	if Path("gcvc.py").exists():
 		debugPrint(debug, "Working directory appears to be correct. Hashing script...")
 		# Hash script here so that, when bugs are submitted with the debug output, we know that the script wasn't modified.
@@ -141,6 +146,9 @@ def main():
 	debugPrint(debug, "\nChecking for input files...")
 	inputFilePaths = [Path("in") / data[key]["path"] for key in data.keys()]
 	for ii in inputFilePaths:
+		if ".png" in str(ii) and not createImages:
+			debugPrint(debug, "Skipping check for image {}".format(ii))
+			continue
 		if ii.exists() and not ii.is_dir():
 			show_file_exists(debug, ii)
 		else:
@@ -149,12 +157,18 @@ def main():
 
 	debugPrint(debug, "Loading input files...")
 	for ii in data.keys():
+		if ".png" in str(ii) and not createImages:
+			debugPrint(debug, "Skipping loading of image {}".format(ii))
+			continue
 		with open(Path("in") / data[ii]["path"], "rb") as inFile:
 			data[ii]["inData"] = inFile.read()
 	debugPrint(debug, "All input files loaded.")
 
 	debugPrint(debug, "Checking input file hashes...")
 	for ii in data.keys():
+		if ".png" in str(ii) and not createImages:
+			debugPrint(debug, "Skipping hashing of image {}".format(ii))
+			continue
 		inHash = hashlib.new("sha256")
 		inHash.update(data[ii]["inData"])
 		if inHash.hexdigest() == data[ii]["inHash"]:
@@ -194,6 +208,9 @@ def main():
 
 	debugPrint(debug, "\nPatching files...")
 	for ii in data.keys():
+		if ".png" in str(ii) and not createImages:
+			debugPrint(debug, "Skipping patching for image {}".format(ii))
+			continue
 		data[ii]["outData"] = b""
 		for jj in range(min(len(data[ii]["inData"]), len(data[ii]["patchData"]))):
 			# Partial credit for this:
@@ -283,6 +300,9 @@ def main():
 	input("If you have existing output files that you would like to keep, please move or rename them, then press enter to continue...") 
 	print("\nSaving output files...")
 	for ii in data.keys():
+		if ".png" in str(ii) and not createImages:
+			debugPrint(debug, "Skipping outputting image {}".format(ii))
+			continue
 		debugPrint(debug, "Writing to file {}...".format(Path("out") / data[ii]["path"]))
 		with open(Path("out") / data[ii]["path"], "wb+") as outFile:
 			outFile.write(data[ii]["outData"])
